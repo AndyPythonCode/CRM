@@ -1,0 +1,69 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+<br>
+
+<div class="row">
+    <!--Uno-->
+    <div class="col-md">
+        <div class="card card-body">
+            <h5 class="card-title">Customer</h5>
+            <hr>
+            <a class="btn my-2 btn-outline-info btn-sm btn-block" href="#">Update Customer</a>
+            <a class="btn btn-outline-danger btn-sm btn-block" href="">Delete Customer</a>
+        </div>
+
+    </div>
+    <!--Dos-->
+    <div class="col-md">
+        <div class="card card-body">
+            <h5 class="card-title">Contact Information</h5>
+            <hr>
+            <p class="font-weight-light">Email:</p>
+            <p class="font-weight-light">Phone:</p>
+        </div>
+    </div>
+    <!--Tres-->
+    <div class="col-md">
+        <div class="card card-body">
+            <h5 class="card-title">Total Orders</h5>
+            <hr>
+            <h1 class="text-center py-2"></h1>
+        </div>
+    </div>
+</div>
+
+<br>
+
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <form action="" method="GET">
+                <button class="btn btn-primary" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<br>
+
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <table class="table table-borderless">
+                <thead>
+                    <tr>
+                        <th scope="col">Product</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Date Orderd</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Update</th>
+                        <th scope="col">Remove</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
