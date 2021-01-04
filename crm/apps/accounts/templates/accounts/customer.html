@@ -19,8 +19,8 @@
         <div class="card card-body">
             <h5 class="card-title">Contact Information</h5>
             <hr>
-            <p class="font-weight-light">Email:</p>
-            <p class="font-weight-light">Phone:</p>
+            <p class="font-weight-light"><b>Email: </b>{{customers.email}}</p>
+            <p class="font-weight-light"><b>Phone: </b>{{customers.phone}}</p>
         </div>
     </div>
     <!--Tres-->
@@ -28,7 +28,7 @@
         <div class="card card-body">
             <h5 class="card-title">Total Orders</h5>
             <hr>
-            <h1 class="text-center py-2"></h1>
+            <h1 class="text-center py-2">{{total_orders}}</h1>
         </div>
     </div>
 </div>
@@ -61,6 +61,18 @@
                         <th scope="col">Remove</th>
                     </tr>
                 </thead>
+                <tbody>
+                {% for order in order %}
+                <tr>
+                    <td>{{order.product.name}}</td>
+                    <td>{{order.product.name}}</td>
+                    <td>{{order.date_created}}</td>
+                    <td>{{order.status}}</td>
+                    <td><a class="btn btn-outline-primary btn-sm" href="{% url 'accounts:order_updated' order.id%}">Update</a></td>
+                    <td><a class="btn btn-outline-danger btn-sm" href="{% url 'accounts:order_delete' order.id %}">Remove</a></td>
+                </tr>
+                {% endfor %}
+                </tbody>
             </table>
         </div>
     </div>

@@ -16,10 +16,20 @@
             <table class="table table-borderless">
                 <thead>
                     <tr>
+                        <th>Show</th>
                         <th>Customer</th>
-                        <th>Orders</th>
+                        <th>Phone</th>
                     </tr>
                 </thead>
+                <tbody>
+                    {% for customer in customers %}
+                    <tr>
+                        <td><a class="btn-sm btn btn-outline-primary" href="{% url 'accounts:customer' customer.id %}">View</a></td>
+                        <td>{{customer.name}}</td>
+                        <td>{{customer.phone}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
             </table>
         </div>
     </div>
@@ -27,7 +37,7 @@
         <h5>LAST 5 ORDERS</h5>
         <hr>
         <div class="card card-body">
-            <a class="btn btn-primary btn-sm btn-block" href="">Create Order</a>
+            <a class="btn btn-primary btn-sm btn-block" href="{% url 'accounts:order_created' %}">Create Order</a>
             <table class="table table-borderless">
                 <tr>
                     <th>Product</th>
@@ -36,7 +46,17 @@
                     <th>Update</th>
                     <th>Remove</th>
                 </tr>
+                {% for order in orders %}
+                    <tr>
+                        <td>{{order.product.name}}</td>
+                        <td>{{order.date_created}}</td>
+                        <td>{{order.status}}</td>
+                        <td><a class="btn btn-outline-primary btn-sm" href="{% url 'accounts:order_updated' order.id%}">Update</a></td>
+                        <td><a class="btn btn-outline-danger btn-sm" href="{% url 'accounts:order_delete' order.id %}">Remove</a></td>
+                    </tr>            
+                {% endfor %}                
             </table>
+
         </div>
     </div>
 </div>

@@ -1,0 +1,16 @@
+{% extends 'accounts/main.html' %}
+{% load static %} 
+{% block content %}
+
+<div class="row my-2">
+  <div class="col-md-6 mx-auto">
+    <div class="card card-body rounded">
+      <form method="POST">
+        {% csrf_token %} {{form.as_p}}
+        <a class="btn btn-outline-warning" href="{{url_back}}">Cancel</a>
+        <button class="btn btn-primary" type="Submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock%}

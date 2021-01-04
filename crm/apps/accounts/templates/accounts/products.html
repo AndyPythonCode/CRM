@@ -9,7 +9,7 @@
                 <h5 class="card-title">Products</h5>
             </div>
             <div class="card-body">
-                <table class="table">
+                <table class="table text-center">
                     <thead>
                         <tr>
                             <th scope="col">Product</th>
@@ -17,6 +17,15 @@
                             <th scope="col">Price</th>
                         </tr>
                     </thead>
+                    <tbody>
+                        {% for product in products %}
+                            <tr>
+                                <td>{{product.name}}</td>
+                                <td>{{product.category}}</td>
+                                <td>{{product.price}}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
                 </table>
             </div>
         </div>
