@@ -5,8 +5,13 @@
 <div class="row my-2">
   <div class="col-md-6 mx-auto">
     <div class="card card-body rounded">
-      <form method="POST">
-        {% csrf_token %} {{form.as_p}}
+      <form action="{{url_back}}" method="POST">
+        {% csrf_token %} 
+          {{ form.management_form }}
+          {% for form in form %}
+          <div>{{form}}</div>
+          <br>
+          {% endfor %}
         <a class="btn btn-outline-warning" href="{{url_back}}">Cancel</a>
         <button class="btn btn-primary" type="Submit">Submit</button>
       </form>
